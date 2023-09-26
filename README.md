@@ -1,6 +1,6 @@
 Ceci est un template [Next.js](https://nextjs.org/) créer par [UIX_DEV] (https://uix_dev.versel.app)
 
-## Getting Started
+## Démarrage
 
 Prémèrement, lancer le serveur de développement : 
 

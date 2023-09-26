@@ -1,14 +1,21 @@
-import Header from './Header'
-import Footer from './Footer'
-
-const Layout = ({ children }) => {
+import Player from '@/src/components/Player/Player'
+import Sidebar from '@/src/components/Sidebar/Sidebar'
+import styles from './layout.module.css'
+import UploadFile from '@/src/components/UploadFile/UploadFile'
+import { useState } from 'react'
+const Layout = ({ children }: { children: React.ReactNode }) => {
+  const [isFullSidebar, setIsFullSidebar] = useState(false)
   return (
     <>
-      {/* <Header /> */}
-
-      {children}
-
-      {/* <Footer /> */}
+      <main className={styles.content}>
+        <Sidebar
+          setIsFullSidebar={setIsFullSidebar}
+          isFullSidebar={isFullSidebar}
+        />
+        <div className={styles.children}>{children}</div>
+      </main>
+      <Player />
+      <UploadFile />
     </>
   )
 }

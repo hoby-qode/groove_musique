@@ -5,7 +5,8 @@ const SONGS = [
         artist : 'Agrad skaiz',
         genre : 'RNB',
         src: '/audios/agrad_skaiz-masoandro_hafa.mp3',
-        cover: '/covers/3249ebb84dc9a88175a9eee5d6fd98cf.jpg'
+        cover: '/covers/3249ebb84dc9a88175a9eee5d6fd98cf.jpg',
+        duration: '03:50'
     },
     {
         id : 1,
@@ -13,7 +14,8 @@ const SONGS = [
         artist : 'Ambondrona',
         genre : 'SLOW',
         src: '/audios/ambondrona-ampy_ahy.mp3',
-        cover: '/covers/c13241168143671.64556d321e3c3.jpg'
+        cover: '/covers/c13241168143671.64556d321e3c3.jpg',
+        duration: '03:50'
     },
     {
         id : 2,
@@ -21,7 +23,8 @@ const SONGS = [
         artist : 'Beyoncé',
         genre : 'RNB',
         src: '/audios/Beyoncé-Halo.mp3',
-        cover: '/covers/d5854f28f614761ebe7ab1071523ae8c.jpg'
+        cover: '/covers/d5854f28f614761ebe7ab1071523ae8c.jpg',
+        duration: '03:50'
     },
     {
         id : 3,
@@ -29,7 +32,8 @@ const SONGS = [
         artist : 'Agrad skaiz',
         genre : 'RNB',
         src: '/audios/agrad_skaiz-masoandro_hafa.mp3',
-        cover: '/covers/3249ebb84dc9a88175a9eee5d6fd98cf.jpg'
+        cover: '/covers/3249ebb84dc9a88175a9eee5d6fd98cf.jpg',
+        duration: '03:50'
     },
     {
         id : 4,
@@ -37,7 +41,8 @@ const SONGS = [
         artist : 'Ambondrona',
         genre : 'SLOW',
         src: '/audios/ambondrona-ampy_ahy.mp3',
-        cover: '/covers/c13241168143671.64556d321e3c3.jpg'
+        cover: '/covers/c13241168143671.64556d321e3c3.jpg',
+        duration: '03:50'
     },
     {
         id : 5,
@@ -45,7 +50,10 @@ const SONGS = [
         artist : 'Beyoncé',
         genre : 'RNB',
         src: '/audios/Beyoncé-Halo.mp3',
-        cover: '/covers/d5854f28f614761ebe7ab1071523ae8c.jpg'
+        cover: '/covers/d5854f28f614761ebe7ab1071523ae8c.jpg',
+        duration: '03:50'
     },
 ]
 export default SONGS
+
+  

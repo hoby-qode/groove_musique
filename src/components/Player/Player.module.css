@@ -1,0 +1,23 @@
+.player {
+    background-color: var(--color-primary);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+}
+.player_infos_picture {
+    display: flex;
+    margin-right: 20px;
+}
+.player_infos_title h2 {
+    font-weight: 400;
+    margin-bottom: 0;
+    font-variation-settings: "wght" 400;
+    color: var(--white);
+}
+.player_infos_title strong {
+    font-variation-settings:"wght" 600, "wdth" 150;
+    font-weight: normal;
+    color: var(--white);
+}

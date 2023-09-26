@@ -1,0 +1,144 @@
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('./fonts/raleway/Raleway-Black.ttf');
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('./fonts/raleway/Raleway-ExtraBold.ttf');
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('./fonts/raleway/Raleway-Bold.ttf');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('./fonts/raleway/Raleway-SemiBold.ttf');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('./fonts/raleway/Raleway-Medium.ttf');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('./fonts/raleway/Raleway-Regular.ttf');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('./fonts/raleway/Raleway-Light.ttf');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('./fonts/raleway/Raleway-Thin.ttf');
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('./fonts/raleway/Raleway-ExtraLight.ttf');
+  font-weight: 200;
+}
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 1.2rem;
+  color: var(--dark);
+  font-family: 'Raleway', sans-serif;
+  font-weight: normal;
+  line-height: 1.5;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  font-weight: 400;
+  margin: 0;
+  position: relative;
+  scroll-behavior: smooth;
+}
+
+body::after , body::before{
+  content: '';
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 42vw;
+  height: 74vh;
+  z-index: -100;
+  border-radius: 63%;
+  filter: blur(50px);
+  pointer-events: none;
+}
+body::before {
+  width: 74vw;
+  height: 52vh;
+}
+body::after {
+  animation: afterBgAnimation 90s infinite linear forwards;
+  background: linear-gradient(180deg, #d03434, transparent);
+  transform: rotate(180deg) translate(0,0);
+  transform-origin: left;
+}
+body::before {
+  animation: beforeBgAnimation 50s infinite linear forwards;
+  background: linear-gradient(45deg, #5353a7, transparent);
+  transform: rotate(45deg) translate(50%,50%);
+  transform-origin: right;
+}
+@keyframes beforeBgAnimation {
+  0%{
+    transform: rotate(45deg) translate(0,0);
+  }
+  50%{
+    transform: rotate(900deg) translate(100%, 100%);
+  }
+  100%{
+    transform: rotate(900deg) translate(-0%, 0%);
+  }
+}
+@keyframes afterBgAnimation {
+  0%{
+    transform: rotate(180deg) translate(0,0);
+  }
+  50%{
+    transform: rotate(900deg) translate(50%, 50%);
+  }
+  100% {
+    transform: rotate(100deg) translate(0%, 100%);
+  }
+}
+.logo {
+  font-size: 1.1rem;
+  margin-bottom: 60px;
+  padding: 0 12px;
+}
+.allSongs {
+  padding: 0;
+}
+
+@media screen and (max-width:991px) {
+  body .isFullSidebar {
+    min-width: 300px;
+    width: 300px;
+    transition: .5s;
+  }
+  .isFullSidebar + div {
+    min-width: calc(100% - 300px);
+    margin-left: 300px;
+    transition: .5s;
+  }
+}

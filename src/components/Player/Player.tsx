@@ -2,47 +2,64 @@ import Controls from '@/src/components/Controls/Controls'
 import Volume from '@/src/components/Volume/Volume'
 import styles from './Player.module.css'
 import Image from 'next/image'
-import { useContext } from 'react'
-import { AudioContext } from '@/src/context/myContext'
-import { Song } from '@/src/components/Audio/Song'
+import { SyntheticEvent, useState } from 'react'
+import { useRecoilValue } from 'recoil'
+import { currentlyPlayingTrackState } from '@/src/atoms/player.atom'
 
-const Player = (props: {
-  isPlaying: boolean
-  setIsPlaying: Function
-  setIdSongPlaying: Function
-  totalSong: number
-}) => {
-  const Song: Song = useContext(AudioContext)
+const Player = () => {
+  const [isMuted, setIsMuted] = useState<boolean>(false)
+  const [volume, setVolume] = useState<number>(1.0)
+  const playingTrack = useRecoilValue(currentlyPlayingTrackState)
+
+  const handleMuted = () => {
+    if (!isMuted) {
+      setIsMuted(true)
+      setVolume(0)
+    } else {
+      setIsMuted(false)
+    }
+  }
+  const handleVolume = (e: SyntheticEvent<EventTarget>) => {
+    setVolume(parseFloat((e.target as HTMLInputElement).value))
+  }
 
   return (
     <>
-      <section className={styles.player}>
-        <div className={styles.player_infos}>
+      <section className={`${styles.player} row`}>
+        <div className={`${styles.player_infos} col-md-3 d-flex`}>
           <div className={styles.player_infos_picture}>
-            <Image
-              src={Song.cover}
-              alt={Song.title}
-              width={150}
-              height={150}
-              priority
-            />
+            {playingTrack ? (
+              <Image
+                src={playingTrack.cover}
+                alt={playingTrack.title}
+                width={130}
+                height={120}
+                priority
+                quality={50}
+              />
+            ) : (
+              ''
+            )}
           </div>
-          <div className={styles.player_infos_title}>
-            <h1>
-              {Song.title} - {Song.id}
-            </h1>
-            <div className={styles.player_infos_artiste}>
-              <strong>{Song.artist}</strong>
+          {playingTrack ? (
+            <div className={styles.player_infos_title}>
+              <h2>
+                {playingTrack?.title} - {playingTrack?.id}
+              </h2>
+              <div className={styles.player_infos_artiste}>
+                <strong>{playingTrack?.artist}</strong>
+              </div>
             </div>
-          </div>
+          ) : (
+            ''
+          )}
         </div>
-        <Controls
-          isPlaying={props.isPlaying}
-          setIsPlaying={props.setIsPlaying}
-          setIdSongPlaying={props.setIdSongPlaying}
-          totalSong={props.totalSong}
-        />
-        <Volume />
+        <div className={`${styles.player_controls} col-md-6`}>
+          <Controls isMuted={isMuted} volume={volume} />
+        </div>
+        <div className={`${styles.player_volume} col-md-3`}>
+          <Volume handleMuted={handleMuted} handleVolume={handleVolume} />
+        </div>
       </section>
     </>
   )

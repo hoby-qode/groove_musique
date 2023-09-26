@@ -1,0 +1,15 @@
+.header {
+}
+.content {
+    display: flex;
+}
+.sidebar {
+    flex: 1;
+    min-width: 20%;
+
+    background-color: red;
+}
+.children {
+    flex: 3;
+    min-width: 80%;
+}

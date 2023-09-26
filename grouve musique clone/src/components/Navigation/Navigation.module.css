@@ -1,0 +1,13 @@
+.navItem, .navItem__active {
+    border: 0;
+    outline: 0;
+    font-size: 1.6rem;
+    background-color: transparent;
+    cursor: pointer;
+    display: flex;
+    gap: 7px;
+    margin-bottom: 10px;
+}
+.navItem__active {
+    background-color: gray;
+}
