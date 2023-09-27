@@ -3,8 +3,7 @@ import Volume from '@/src/components/Volume/Volume'
 import styles from './Player.module.css'
 import Image from 'next/image'
 import { SyntheticEvent, useState } from 'react'
-import { Song } from '@/src/types/SongType'
-import { useRecoilState, useRecoilValue } from 'recoil'
+import { useRecoilValue } from 'recoil'
 import { currentlyPlayingTrackState } from '@/src/atoms/player.atom'
 
 const Player = () => {
@@ -44,9 +43,9 @@ const Player = () => {
           </div>
           {playingTrack ? (
             <div className={styles.player_infos_title}>
-              <h1>
+              <h2>
                 {playingTrack?.title} - {playingTrack?.id}
-              </h1>
+              </h2>
               <div className={styles.player_infos_artiste}>
                 <strong>{playingTrack?.artist}</strong>
               </div>

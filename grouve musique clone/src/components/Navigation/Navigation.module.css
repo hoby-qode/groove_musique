@@ -6,8 +6,22 @@
     cursor: pointer;
     display: flex;
     gap: 7px;
-    margin-bottom: 10px;
+    padding: 16px 10px;
+    border-left: 3px solid transparent;
+    transition: .3s;
 }
 .navItem__active {
-    background-color: gray;
+    border-left-color:  var(--color-primary);
+    transition: .3s;
+}
+@media screen and (max-width:991px) {
+    .navItem span, .navItem__active span{
+        display: none;
+    }
+    .navItem, .navItem__active {
+        padding: 16px 20px 16px 14px;
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
 }

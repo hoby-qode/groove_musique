@@ -1,9 +1,5 @@
 import React from 'react'
 import Head from 'next/head'
-import Player from '@/src/components/Player/Player'
-import type { NextPage } from 'next'
-import Sidebar from '@/src/components/Sidebar/Sidebar'
-import { useEffect } from 'react'
 const Home = () => {
   return (
     <>

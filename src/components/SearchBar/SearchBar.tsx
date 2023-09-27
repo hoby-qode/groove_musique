@@ -11,16 +11,14 @@ const SearchBar = () => {
   const handleChange = (e: any) => {
     setSearch(e.target.value)
     if (search && search != '') {
-      console.log(search)
-
-      /* En attente d'un dev pour gerer la recuperation des données avec la valeur du recherche */
-      const filterSongs = allSongs.filter((song) =>
-        song.title.toLowerCase().includes(search.toLowerCase()),
-      )
+      const filterSongs =
+        search != ''
+          ? allSongs.filter((song) =>
+              song.title.toLowerCase().includes(search.toLowerCase()),
+            )
+          : []
       setSearchResults(filterSongs)
     } else {
-      console.log('ysy')
-
       setSearchResults(allSongs)
     }
   }

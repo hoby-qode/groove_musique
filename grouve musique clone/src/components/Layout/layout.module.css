@@ -2,14 +2,19 @@
 }
 .content {
     display: flex;
-}
-.sidebar {
-    flex: 1;
-    min-width: 20%;
-
-    background-color: red;
+    min-height: 100vh;
 }
 .children {
     flex: 3;
-    min-width: 80%;
+    min-width: 83%;
+    backdrop-filter: blur(50px) ;
+    background-color: rgba(255, 255, 255, 0.569);
+    padding: 20px 17px 0 17px;
+}
+@media screen and (max-width:991px) {
+    .children {
+        min-width: calc(100% - 60%);
+        margin-left: 60px;
+        transition: .5s;
+    }
 }

@@ -1,0 +1,14 @@
+.upload {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 999;
+    pointer-events: none;
+}
+.onDragEnter {
+    background-color: red;
+    opacity: .5;
+    pointer-events: initial;
+}

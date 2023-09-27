@@ -10,18 +10,13 @@ const navLinks = [
     icon: <TbMusic />,
   },
   {
-    name: 'Albums',
-    href: '/albums',
+    name: 'Lecture récente',
+    href: '/lecture-recente',
     icon: <TbAlbum />,
   },
   {
-    name: 'Artistes',
-    href: '/artistes',
-    icon: <TbMusic />,
-  },
-  {
-    name: 'Morceaux',
-    href: '/morceaux',
+    name: 'Lecture en cours',
+    href: '/lecture-en-cours',
     icon: <TbMusic />,
   },
 ]
@@ -40,7 +35,7 @@ const Navigation = () => {
             key={key}
           >
             {link.icon}
-            {link.name}
+            <span>{link.name}</span>
           </button>
         )
       })}

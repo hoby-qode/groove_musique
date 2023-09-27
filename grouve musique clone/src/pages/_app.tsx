@@ -1,6 +1,8 @@
 import '@/styles-globals/variables.globals.css'
+import '@/styles-globals/utils.globals.css'
 import '@/styles-globals/bootstrap-grid.globals.css'
 import '@/styles-globals/buttons.globals.css'
+import '@/styles-globals/fonts.globals.css'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import Layout from '@/src/components/Layout/Layout'

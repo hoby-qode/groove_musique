@@ -1,33 +1,25 @@
 import React from 'react'
-import { useRecoilState } from 'recoil'
-import { allSongsState } from '../../atoms/player.atom'
-import Link from 'next/link'
-const index = () => {
+import { useRecoilState, useRecoilValue } from 'recoil'
+import { allSongsState, searchResultsState } from '../../atoms/player.atom'
+import TrackItem from '@/src/components/TrackItem/TrackItem'
+import Headerpage from '@/src/components/Headerpage/Headerpage'
+const Index = () => {
   const [Songs, setSongs] = useRecoilState(allSongsState)
+  const searchResults = useRecoilValue(searchResultsState)
   return (
-    <ul className="allSongs">
-      {Songs.map((item, key) => {
-        return (
-          <li
-            key={key}
-            className={`d-flex py-3 ${
-              key % 2 == 0 ? 'bg-white' : 'bg-light-gray'
-            }`}
-          >
-            <input type="checkbox" />
-            <div className="row w-100">
-              <Link href={`/ma-musique/${item.id}`} className="title col-md-4">
-                {item.title}
-              </Link>
-              <div className="artist col-md-3">{item.artist}</div>
-              <div className="genre col-md-3">{item.genre}</div>
-              <div className="duration col-2">{item.duration}</div>
-            </div>
-          </li>
-        )
-      })}
-    </ul>
+    <>
+      <Headerpage />
+      <ul className="allSongs">
+        {searchResults.length > 0
+          ? searchResults.map((item, key) => {
+              return <TrackItem item={item} key={key} cle={item.id} />
+            })
+          : Songs.map((item, key) => {
+              return <TrackItem item={item} key={key} cle={item.id} />
+            })}
+      </ul>
+    </>
   )
 }
 
-export default index
+export default Index

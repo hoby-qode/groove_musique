@@ -4,12 +4,13 @@
     bottom: 0;
     left: 0;
     width: 100%;
+    z-index: 999;
 }
 .player_infos_picture {
     display: flex;
     margin-right: 20px;
 }
-.player_infos_title h1 {
+.player_infos_title h2 {
     font-weight: 400;
     margin-bottom: 0;
     font-variation-settings: "wght" 400;

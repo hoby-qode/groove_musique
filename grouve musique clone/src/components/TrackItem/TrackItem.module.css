@@ -1,0 +1,42 @@
+.track > div {
+    display: flex;
+    padding: 1.5rem 1.5rem 1.5rem 6rem;
+    color: var(--black);
+}
+.track {
+    list-style: none;
+    position: relative;
+}
+.track a , .track .title {
+    color: var(--black);
+    text-decoration: none;
+    padding: 0;
+}
+.track input {
+    display: none;
+    position: absolute;
+    left: 10px;
+    width: 15px;
+    height: 15px;
+    z-index: 11;
+    top: 43%;
+    transform: translateY(-50%);
+}
+.track input:checked + div {
+    background-color: var(--color-primary);
+}
+.track input:checked + div a , .track input:checked + div {
+    color: var(--white);
+}
+.track:hover input, .track input:checked {
+    display: block;
+}
+.track:nth-child(2n+1) > div{
+    background-color: #f2f2f2;
+}
+.track_title {
+    cursor: pointer;
+}
+.track_title_active {
+    font-weight: 700;
+}
