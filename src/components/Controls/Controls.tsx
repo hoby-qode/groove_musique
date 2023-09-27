@@ -1,6 +1,6 @@
 import React, { useState, SyntheticEvent, useEffect } from 'react'
 import useRandomIntFromInterval from '@/src/hooks/useRadomIntFromInterval'
-import useFormatedTime from '@/src/hooks/useFormatedTime'
+import useFormattedTime from '@/src/hooks/useFormatedTime'
 import {
   currentlyPlayingTrackState,
   allSongsState,
@@ -114,12 +114,9 @@ const Controls = (props: { isMuted: Boolean; volume: number }) => {
       })
     }
   }
+  const formattedCurrentTime = useFormattedTime(timeSongInfos.currentTime);
+  const formattedDuration = useFormattedTime(timeSongInfos.duration);
 
-  const getSongInfos = (args: string): string => {
-    return args === 'currentTime'
-      ? useFormatedTime(timeSongInfos.currentTime)
-      : useFormatedTime(timeSongInfos.duration)
-  }
   useEffect(() => {
     if (ref.current) {
       if (isPlay) {
@@ -134,7 +131,7 @@ const Controls = (props: { isMuted: Boolean; volume: number }) => {
         ref.current.volume = props.volume
       }
     }
-  }, [isPlay, props.isMuted, props.volume])
+  }, [isPlay, props.isMuted, props.volume, ref])
   return (
     <div className={styles.controls}>
       <div>
@@ -184,7 +181,7 @@ const Controls = (props: { isMuted: Boolean; volume: number }) => {
         ''
       )}
       <div className={styles.range__container}>
-        <div className={styles.rangeTime}>{getSongInfos('currentTime')}</div>
+        <div className={styles.rangeTime}>{formattedCurrentTime}</div>
         <input
           type="range"
           min={0}
@@ -193,7 +190,7 @@ const Controls = (props: { isMuted: Boolean; volume: number }) => {
           value={timeSongInfos.currentTime}
           className={styles.range}
         />
-        <div className={styles.rangeTime}>{getSongInfos('duration')}</div>
+        <div className={styles.rangeTime}>{formattedDuration}</div>
       </div>
     </div>
   )
