@@ -6,7 +6,12 @@ import Link from 'next/link'
 import useGenerateSlug from '@/src/hooks/useGenerateSlug'
 const Artistes = () => {
   const artists = useRecoilValue(artistsState)
-  const slugs = artists.map(item => useGenerateSlug(item)) 
+  const slugs = artists.map(item => item.trim()
+  .normalize('NFD')
+  .replace(/[\u0300-\u036f]/g, '')
+  .toLowerCase()
+  .replace(/\s+/g, '-')
+  .replace(/[^\w-]+/g, '')) 
   return (
     <>
       <Headerpage subtitle={'Artistes'} />
