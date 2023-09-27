@@ -1,4 +1,4 @@
-import React, { useState, SyntheticEvent, useEffect } from 'react'
+import React, { useState, SyntheticEvent, useEffect, useRef } from 'react'
 import useRandomIntFromInterval from '@/src/hooks/useRadomIntFromInterval'
 import useFormattedTime from '@/src/hooks/useFormatedTime'
 import {
@@ -18,7 +18,7 @@ import {
   TbPlayerPause,
 } from 'react-icons/tb'
 const Controls = (props: { isMuted: Boolean; volume: number }) => {
-  const ref = React.createRef<HTMLAudioElement | null>()
+  const ref = useRef<HTMLAudioElement | null>(null)
   const [isPlay, setIsPlay] = useRecoilState<boolean>(playState)
   const allTracks = useRecoilValue(allSongsState)
   const [timeSongInfos, setTimeSongInfos] = useState<{
