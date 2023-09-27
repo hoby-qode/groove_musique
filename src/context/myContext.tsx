@@ -1,4 +1,4 @@
 import React from 'react'
-import { Song } from '@/src/components/Audio/SongType'
+import { Song } from '@/src/types/SongType'
 
 export const AudioContext = React.createContext<Song | null>(null)
