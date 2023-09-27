@@ -1,40 +1,25 @@
-import React, { SyntheticEvent } from 'react';
-import styles from './SearchBar.module.css';
-import { TbSearch } from 'react-icons/tb';
-import { useState } from 'react';
-import { allSongsState, searchResultsState } from '@/src/atoms/player.atom';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import React from 'react';
+import { useRecoilState } from 'recoil';
+import { allSongsState } from '../../atoms/player.atom';
+import TrackItem from '@/src/components/TrackItem/TrackItem';
+import Headerpage from '@/src/components/Headerpage/Headerpage';
 
-const SearchBar = () => {
-  const [search, setSearch] = useState<string>(''); // Spécifiez le type string ici
-  const [searchResults, setSearchResults] = useRecoilState(searchResultsState);
-  const allSongs = useRecoilValue(allSongsState);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const searchText = e.target.value.toLowerCase();
-    setSearch(searchText);
-
-    if (searchText !== '') {
-      const filterSongs = allSongs.filter((song) =>
-        song.title.toLowerCase().includes(searchText)
-      );
-      setSearchResults(filterSongs);
-    } else {
-      setSearchResults(allSongs);
-    }
-  };
-
+const Albums = ({ searchResults }: { searchResults: any[] }) => { // Spécifiez le type explicite pour searchResults
+  const [Songs, setSongs] = useRecoilState(allSongsState);
   return (
-    <div className={styles.inputGroup}>
-      <input
-        type="search"
-        placeholder="Rechercher"
-        value={search}
-        onChange={(e) => handleChange(e)}
-      />
-      <TbSearch />
-    </div>
+    <>
+      <Headerpage subtitle={'Album'} />
+      <ul className="allSongs">
+        {searchResults
+          ? searchResults.map((item: any, key: number) => { // Spécifiez le type explicite pour item et key
+              return <TrackItem item={item} key={key} cle={key} />;
+            })
+          : Songs.map((item: any, key: number) => { // Spécifiez le type explicite pour item et key
+              return <TrackItem item={item} key={key} cle={key} />;
+            })}
+      </ul>
+    </>
   );
 };
 
-export default SearchBar;
+export default Albums;
