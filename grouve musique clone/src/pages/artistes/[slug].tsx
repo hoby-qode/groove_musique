@@ -9,11 +9,15 @@ const Artiste = () => {
   const router = useRouter()
   const Songs = useRecoilValue(allSongsState)
   const searchResults = useRecoilValue(searchResultsState)
+  const artistSlug = useGenerateSlug(
+    Array.isArray(router.query.slug)
+      ? router.query.slug.join(' ')
+      : router.query.slug || ''
+  );
+
   const filterSongs = router.query.slug
     ? Songs.filter((song) =>
-        useGenerateSlug(song.artist).includes(
-          useGenerateSlug(router.query.slug),
-        ),
+        useGenerateSlug(song.artist).includes(artistSlug),
       )
     : []
   return (

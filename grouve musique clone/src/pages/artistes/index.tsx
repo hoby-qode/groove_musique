@@ -6,12 +6,13 @@ import Link from 'next/link'
 import useGenerateSlug from '@/src/hooks/useGenerateSlug'
 const Artistes = () => {
   const artists = useRecoilValue(artistsState)
+  const slugs = artists.map(item => useGenerateSlug(item)) 
   return (
     <>
       <Headerpage subtitle={'Artistes'} />
       <ul className="allSongs">
         {artists.map((item, key) => {
-          const slug = useGenerateSlug(item)
+          const slug = slugs[key] // Utiliser le slug correspondant
           return (
             <Link href={`/artistes/${slug}`} key={key}>
               {item}

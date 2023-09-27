@@ -7,7 +7,7 @@ import {
   playState,
 } from '@/src/atoms/player.atom'
 import { useRecoilState, useRecoilValue } from 'recoil'
-const TrackItem = ({ item }: { item: Song }) => {
+const TrackItem = ({ item, cle }: { item: Song, cle: number }) => {
   const allSongs = useRecoilValue(allSongsState)
   const [isPlay, setIsPlay] = useRecoilState(playState)
   const handleChooseTrack = (id: number): void => {
