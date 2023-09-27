@@ -8,7 +8,7 @@ const Index = () => {
   const searchResults = useRecoilValue(searchResultsState)
   return (
     <>
-      <Headerpage />
+      <Headerpage subtitle={''}/>
       <ul className="allSongs">
         {searchResults.length > 0
           ? searchResults.map((item, key) => {

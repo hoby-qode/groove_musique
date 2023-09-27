@@ -3,22 +3,22 @@ import { useRecoilState } from 'recoil'
 import { allSongsState } from '../../atoms/player.atom'
 import TrackItem from '@/src/components/TrackItem/TrackItem'
 import Headerpage from '@/src/components/Headerpage/Headerpage'
-const Albums = ({ searchResults }: { searchResults: any }) => {
+const artistes = ({ searchResults }: { searchResults: any }) => {
   const [Songs, setSongs] = useRecoilState(allSongsState)
   return (
     <>
-      <Headerpage subtitle={'Album'} />
+      <Headerpage />
       <ul className="allSongs">
         {searchResults
           ? searchResults.map((item, key) => {
-              return <TrackItem item={item} key={key} cle={key}/>
+              return <TrackItem item={item} key={key} />
             })
           : Songs.map((item, key) => {
-              return <TrackItem item={item} key={key} cle={key}/>
+              return <TrackItem item={item} key={key} />
             })}
       </ul>
     </>
   )
 }
 
-export default Albums
+export default artistes

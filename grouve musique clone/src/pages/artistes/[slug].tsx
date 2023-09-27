@@ -17,7 +17,12 @@ const Artiste = () => {
 
   const filterSongs = router.query.slug
     ? Songs.filter((song) =>
-        useGenerateSlug(song.artist).includes(artistSlug),
+        song.artist.trim()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toLowerCase()
+        .replace(/\s+/g, '-')
+        .replace(/[^\w-]+/g, '').includes(artistSlug),
       )
     : []
   return (
